@@ -11,14 +11,6 @@
 #include <sys/types.h>
 
 
-#ifdef _WIN32
-    #include <io.h>
-    #define isatty _isatty  // Windows names it _isatty
-#else
-    #include <unistd.h>     // Linux/macOS use unistd.h
-#endif
-
-
 void fuckery(SDL_Surface *ptr_surface, SDL_Window *ptr_window, int width, int height){
 
 	uint32_t color = SDL_MapRGB(ptr_surface->format, 0x00, 0xFF, 0x00);
