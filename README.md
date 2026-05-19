@@ -1,5 +1,3 @@
-# How To Run
-
 ## Compile or Install First 
 ### Read install.sh for tips
 ---
