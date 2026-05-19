@@ -44,7 +44,6 @@ int main(int argc, char* argv[]){
     }
 
 	char *ptr_throwaway = calloc(1000, sizeof(char));
-
 	// Header Data From PPM File
 	int img_width = -1;
 	int img_height = -1;
@@ -68,6 +67,10 @@ int main(int argc, char* argv[]){
 
 	printf("width %d and height %d of the ppm image with max color value of %d\n", img_width, img_height, MAX_COLOR_VALUE);
 
+	if(img_width == -1 || img_height == -1){
+		printf("Bad Input :(");
+		return 1;
+	}
 
 	SDL_Window *ptr_window = SDL_CreateWindow("Musabs Image Viewer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, img_width, img_height, 0);
 
