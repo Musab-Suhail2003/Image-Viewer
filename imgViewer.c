@@ -28,7 +28,7 @@ void fuckery(SDL_Surface *ptr_surface, SDL_Window *ptr_window, int width, int he
 
 int main(int argc, char* argv[]){
 
-	FILE *ptr_stdin = (argc > 1) ? fopen(argv[1], "r") : stdin;
+	FILE *ptr_stdin = (argc > 1) ? fopen(argv[1], "rb") : stdin;
 	if (ptr_stdin == NULL) {
 		perror("Error opening file or no input given");
 		printf("Usage: imgViewer ./FILEPATH_OF_PPM_IMG or imgViewer < PPM_IMG");
@@ -72,7 +72,7 @@ int main(int argc, char* argv[]){
 
 	SDL_Rect pixel= (SDL_Rect){0, 0, 1, 1};
 
-	//fuckery(ptr_surface, ptr_window, width, height);
+	fuckery(ptr_surface, ptr_window, img_width, img_height);
 
 	for (int y = 0; y < img_height; y++){
 		int x = 0;
@@ -87,8 +87,9 @@ int main(int argc, char* argv[]){
 			SDL_FillRect(ptr_surface, &pixel, color);
 			
 		}
-		SDL_UpdateWindowSurface(ptr_window);
 	}
+	SDL_UpdateWindowSurface(ptr_window);
+
 
 	Uint8 apprunning = 1;
 	while(apprunning){
